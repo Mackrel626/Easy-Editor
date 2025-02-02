@@ -4,24 +4,100 @@ import os
 from PIL import Image, ImageFilter
 from PyQt5.QtGui import QPixmap
 
+styles = '''
+QWidget {
+    background-color : rgb(181, 130, 140); 
+}
+QPushButton {
+    background-color : White;
+    color : black;
+    font-size : 12px;
+}
+QPushButton#LeftButton1{
+    background-color : black;
+    color : White;
+}
+QPushButton#RightButton {
+    background-color : White;
+    color : black;
+}
+QPushButton#MirroButton1{
+    background-color : black;
+    color : White;
+}
+QPushButton#SharpButton1 {
+    background-color : black;
+    color : White;
+}
+QPushButton#file{
+    background-color : black;
+    color : White;
+}
+QLabel {
+    font-weight : bold;
+}
+QListWidget {
+   font-size : 13px;
+}
+'''
+
+styles1 = '''
+QWidget {
+    background-color : black; 
+}
+QPushButton {
+    color : rgb(157, 255, 0);
+    font-size : 12px;
+    font-weight : bold;
+}
+QPushButton#LeftButton{
+    background-color : rgb(157, 255, 0);
+    color : black;
+}
+QPushButton#MirroButton{
+    background-color : rgb(157, 255, 0);
+    color : black;
+}
+QPushButton#SharpButton{
+    background-color : rgb(157, 255, 0);
+    color : black;
+}
+QLabel {
+    font-weight : bold;
+}
+QListWidget {
+   font-size : 13px;
+   
+}
+'''
+
+
 app = QApplication([])
+app.setStyleSheet(styles)
 win = QWidget()
 win.resize(700, 500)
 win.setWindowTitle("Easy Editor")
 
 btn_directory = QPushButton("Папка")
+btn_directory.setObjectName("file")
 list_photos = QListWidget()
 v1 = QVBoxLayout()
 v1.addWidget(btn_directory)
 v1.addWidget(list_photos)
 
 btn_left = QPushButton("Вліво")
+btn_left.setObjectName("LeftButton")
+btn_left.setObjectName("LeftButton1")
 btn_right = QPushButton("Вправо")
+btn_right.setObjectName("RightButton")
 btn_mirror = QPushButton("Відзеркалнення")
+btn_mirror.setObjectName("MirroButton")
+btn_mirror.setObjectName("MirroButton1")
 btn_sharp = QPushButton("Різкість")
+btn_sharp.setObjectName("SharpButton")
+btn_sharp.setObjectName("SharpButton1")
 btn_bw = QPushButton("Ч/Б")
 btn_back = QPushButton("назад")
-
 
 v2 = QHBoxLayout()
 v2.addWidget(btn_back)
